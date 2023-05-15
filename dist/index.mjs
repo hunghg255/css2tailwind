@@ -3547,6 +3547,8 @@ var CssToTailwind = (code, config = defaultTranslatorConfig) => {
   };
 };
 export {
-  CssToTailwind
+  CssToTailwind,
+  defaultTranslatorConfig,
+  specialAttribute
 };
 //# sourceMappingURL=index.mjs.map

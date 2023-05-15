@@ -2312,5 +2312,7 @@ const CssToTailwind = (code: string, config: TranslatorConfig = defaultTranslato
 }
 
 export {
-  CssToTailwind
+  CssToTailwind,
+  specialAttribute,
+  defaultTranslatorConfig
 }

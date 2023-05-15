@@ -34,9 +34,15 @@ interface TranslatorConfig {
     useAllDefaultValues?: boolean;
     customTheme?: CustomTheme;
 }
+declare const specialAttribute: string[];
+declare const defaultTranslatorConfig: {
+    prefix: string;
+    useAllDefaultValues: boolean;
+    customTheme: {};
+};
 declare const CssToTailwind: (code: string, config?: TranslatorConfig) => {
     code: 'SyntaxError' | 'OK';
     data: ResultCode[];
 };
 
-export { CssToTailwind };
+export { CssToTailwind, defaultTranslatorConfig, specialAttribute };
