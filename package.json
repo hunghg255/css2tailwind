@@ -1,0 +1,43 @@
+{
+  "name": "css2tailwind",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "test": "node ./test/test.mjs"
+  },
+  "author": "hunghg255",
+  "devDependencies": {
+    "@types/node": "^18.15.13",
+    "husky": "^8.0.3",
+    "terser": "^5.17.1",
+    "tslib": "^2.5.0",
+    "typescript": "^5.0.4",
+    "unbuild": "^1.2.1"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "keywords": [
+    "CSS",
+    "Tailwindcss",
+    "CSS to Tailwindcss"
+  ],
+  "homepage": "https://github.com/hunghg255/css2tailwind",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hunghg255/css2tailwind"
+  },
+  "bugs": {
+    "url": "https://github.com/hunghg255/css2tailwind/issues"
+  }
+}
