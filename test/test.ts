@@ -1,4 +1,4 @@
-import { CssToTailwind } from "../dist/index.mjs";
+import { CssToTailwind } from 'css2tailwind';
 
 const cssCode = `body {
   width: 100%;
