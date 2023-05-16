@@ -233,6 +233,8 @@ const isColor = (str: string, joinLinearGradient = false) => {
 }
 
 const isUnit = (str: string) => {
+  if (str.includes('calc')) return true;
+
   return [
     'em', 'ex', 'ch', 'rem', 'vw', 'vh', 'vmin', 'vmax',
     'cm', 'mm', 'in', 'pt', 'pc', 'px', 'min-content', 'max-content', 'fit-content',
@@ -2191,11 +2193,14 @@ const getResultCode = (it: CssCodeParse, prefix = '', config: TranslatorConfig) 
       val = val.replace('!important', '').trim()
       hasImportant = true
     }
-    let pipeVal = ''
+    let pipeVal = '';
+
+    if (val.includes('calc')) val = val.replace(/\s/g, '_')
+
     if (val === 'initial' || val === 'inherit') {
       pipeVal = `[${key.trim()}:${val}]`
     } else {
-      config.customTheme = config.customTheme ?? {}
+      config.customTheme = config.customTheme ?? {};
       pipeVal = typeof pipe === 'function'
         ? (config.customTheme[key.trim()]?.[val] || (config.useAllDefaultValues && moreDefaultValuesMap[key.trim()]?.[val]) || pipe(val))
         : (config.customTheme[key.trim()]?.[val] || (config.useAllDefaultValues && moreDefaultValuesMap[key.trim()]?.[val]) || (pipe?.[val] ?? ''))
@@ -2257,7 +2262,9 @@ const getResultCode = (it: CssCodeParse, prefix = '', config: TranslatorConfig) 
       }
     }
     return pipeVal
-  }).filter(v => v !== '')
+  }).filter(v => v !== '');
+
+
   return {
     selectorName: it.selectorName,
     resultVal: [...new Set(resultVals)].join(' ')
@@ -2284,6 +2291,7 @@ const CssToTailwind = (code: string, config: TranslatorConfig = defaultTranslato
   customTheme = config.customTheme ?? defaultTranslatorConfig.customTheme
   const dataArray: ResultCode[] = []
   parsingCode(code).map(it => {
+
     if (typeof it.cssCode === 'string') {
       return getResultCode(it, '', config)
     } else if (it.selectorName.includes('@media')) {

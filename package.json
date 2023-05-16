@@ -1,6 +1,6 @@
 {
   "name": "css2tailwind",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "build": "tsup --dts",
-    "test": "tsc ./test/test.ts"
+    "test": "node ./test/test.mjs"
   },
   "author": "hunghg255",
   "devDependencies": {

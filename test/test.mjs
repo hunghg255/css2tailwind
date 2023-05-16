@@ -1,10 +1,11 @@
-import { CssToTailwind } from 'css2tailwind';
+import { CssToTailwind } from '../dist/index.mjs';
 
 const cssCode = `body {
   width: 100%;
-  height: 50%;
+  height: calc(100vh - 50%);
+  top: calc(100vh - 50%);
+  margin-top: calc(100vh - 50%);
   margin: 0 !important;
-  /* asd */
   background-color: transparent;
 }`;
 
