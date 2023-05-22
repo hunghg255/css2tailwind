@@ -10,7 +10,8 @@
   ],
   "scripts": {
     "build": "tsup --dts",
-    "test": "node ./test/test.mjs"
+    "test-cli": "node ./test-cli/test.mjs",
+    "test": "vitest"
   },
   "author": "hunghg255",
   "devDependencies": {
@@ -21,7 +22,9 @@
     "tslib": "^2.5.0",
     "tsup": "^6.7.0",
     "typescript": "^5.0.4",
-    "unbuild": "^1.2.1"
+    "unbuild": "^1.2.1",
+    "vite": "^4.3.8",
+    "vitest": "^0.31.1"
   },
   "keywords": [
     "CSS",
