@@ -2173,7 +2173,7 @@ const getResultCode = (it: CssCodeParse, prefix = '', config: TranslatorConfig) 
     return null
   }
 
-  const cssCodeList = it.cssCode.replace(/\/(.*?)\//g, '').split(';').filter(v => v !== '')
+  const cssCodeList = it.cssCode.replace(/\/\*(.*?)\*\//g, '').split(';').filter(v => v !== '')
 
   const resultVals = cssCodeList.map(v => {
     let key = ''
