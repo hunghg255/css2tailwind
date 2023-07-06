@@ -60,7 +60,7 @@ const hasNegative = (val: string): ['-' | '', string] => [
 ];
 const getCustomVal = (val: string) => {
   // FIGMA: color: var(--neutral-1, #2F2F2F)
-  if (val.startsWith('var') && val.includes(',')) return val.match(/#[0-9a-zA-Z]{3,6}/g);
+  if (val.startsWith('var') && val.includes(',')) return val?.[0] ?? val;
 
   val = val.replace(/\s/g, '_');
   for (let index = 1; index < val.length; index) {
@@ -466,7 +466,7 @@ const getFontSizeDefaultVal = (val: string) => {
 
 const propertyMap: Map<
   string,
-  Record<string, string> | ((val: strin) => string)
+  Record<string, string> | ((val: string) => string)
 > = new Map<string, Record<string, string> | ((val: string) => string)>([
   [
     'align-content',
