@@ -34,6 +34,7 @@ interface TranslatorConfig {
     useAllDefaultValues?: boolean;
     customTheme?: CustomTheme;
 }
+
 declare const specialAttribute: string[];
 declare const defaultTranslatorConfig: {
     prefix: string;

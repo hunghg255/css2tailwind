@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import { CssToTailwind } from '..';
+import { CssToTailwind } from '../src';
 
 // Edit an assertion and save to see HMR in action
 
