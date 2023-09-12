@@ -188,7 +188,7 @@ const propertyMap: Map<
     'backface-visibility',
     {
       visible: '[backface-visibility:visible]',
-      hidden: '[backface-visibility:hidden]',
+      hidden: '[backface-visibility:hidden]'
     },
   ],
   [
@@ -2404,6 +2404,7 @@ const propertyMap: Map<
     {
       visible: 'visible',
       hidden: 'invisible',
+      collapse: 'collapse',
     },
   ],
   [
@@ -2457,7 +2458,7 @@ const propertyMap: Map<
         '40': 'z-40',
         '50': 'z-50',
         auto: 'z-auto',
-      }[val] ?? (typeof val === 'number' ? `z-[${val}]` : '')),
+      }[val] ?? `z-[${val}]`),
   ],
 ]);
 

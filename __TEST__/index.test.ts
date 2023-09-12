@@ -119,3 +119,153 @@ test('CSS Aspect Ratio', () => {
   });
 });
 
+test('CSS Display', () => {
+  const cssCode1 = `body {
+    display: block;
+    display: inline-block;
+    display: inline;
+    display: flex;
+    display: inline-flex;
+    display: table;
+    display: inline-table;
+    display: table-caption;
+    display: table-cell;
+    display: table-column;
+    display: table-column-group;
+    display: table-footer-group;
+    display: table-header-group;
+    display: table-row-group;
+    display: table-row;
+    display: flow-root;
+    display: grid;
+    display: inline-grid;
+    display: contents;
+    display: list-item;
+    display: none;
+  }`;
+
+  expect(CssToTailwind(cssCode1)).toEqual({
+    code: 'OK',
+    data: [
+      {
+        resultVal: 'block inline-block inline flex inline-flex table inline-table table-caption table-cell table-column table-column-group table-footer-group table-header-group table-row-group table-row flow-root grid inline-grid contents list-item hidden',
+        selectorName: 'body',
+      },
+    ],
+  });
+});
+
+
+test('CSS Object Fit', () => {
+  const cssCode1 = `body {
+    object-fit: contain;
+    object-fit: cover;
+    object-fit: fill;
+    object-fit: none;
+    object-fit: scale-down;
+  }`;
+
+  expect(CssToTailwind(cssCode1)).toEqual({
+    code: 'OK',
+    data: [
+      {
+        resultVal: 'object-contain object-cover object-fill object-none object-scale-down',
+        selectorName: 'body',
+      },
+    ],
+  });
+});
+
+test('CSS Overflow', () => {
+  const cssCode1 = `body {
+    overflow: auto;
+    overflow: hidden;
+    overflow: clip;
+    overflow: visible;
+    overflow: scroll;
+    overflow-x: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    overflow-x: clip;
+    overflow-y: clip;
+    overflow-x: visible;
+    overflow-y: visible;
+    overflow-x: scroll;
+    overflow-y: scroll;
+  }`;
+
+  expect(CssToTailwind(cssCode1)).toEqual({
+    code: 'OK',
+    data: [
+      {
+        resultVal: 'overflow-auto overflow-hidden overflow-visible overflow-scroll overflow-x-auto overflow-y-auto overflow-x-hidden overflow-y-hidden overflow-x-visible overflow-y-visible overflow-x-scroll overflow-y-scroll',
+        selectorName: 'body',
+      },
+    ],
+  });
+});
+
+test('CSS Position', () => {
+  const cssCode1 = `body {
+    position: static;
+    position: fixed;
+    position: absolute;
+    position: relative;
+    position: sticky;
+  }`;
+
+  expect(CssToTailwind(cssCode1)).toEqual({
+    code: 'OK',
+    data: [
+      {
+        resultVal: 'static fixed absolute relative sticky',
+        selectorName: 'body',
+      },
+    ],
+  });
+});
+
+
+test('CSS visibility', () => {
+  const cssCode1 = `body {
+    visibility: visible;
+    visibility: hidden;
+    visibility: collapse;
+  }`;
+
+  expect(CssToTailwind(cssCode1)).toEqual({
+    code: 'OK',
+    data: [
+      {
+        resultVal: 'visible invisible collapse',
+        selectorName: 'body',
+      },
+    ],
+  });
+});
+
+test('CSS z-index', () => {
+  const cssCode1 = `body {
+    z-index: 0;
+    z-index: 10;
+    z-index: 20;
+    z-index: 30;
+    z-index: 40;
+    z-index: 50;
+    z-index: auto;
+    z-index: 3;
+    z-index: 9;
+  }`;
+
+  expect(CssToTailwind(cssCode1)).toEqual({
+    code: 'OK',
+    data: [
+      {
+        resultVal: 'z-0 z-10 z-20 z-30 z-40 z-50 z-auto z-[3] z-[9]',
+        selectorName: 'body',
+      },
+    ],
+  });
+});
+
