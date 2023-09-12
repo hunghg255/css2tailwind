@@ -1,5 +1,5 @@
 import { CssCodeParse, CustomSelect, CustomTheme, ResultCode, TranslatorConfig } from "./types";
-import { getBorderRadiusDefaultVal, getCustomVal, getFilterDefaultVal, getFontSizeDefaultVal, getRemDefaultVal, getUnitMetacharactersVal, hasNegative, isColor, isUnit } from "./utils";
+import { getBorderRadiusDefaultVal, getCustomVal, getFilterDefaultVal, getFontSizeDefaultVal, getRemDefaultVal, getUnitMetacharactersVal, hasNegative, isColor, isUnit, removeSpace } from "./utils";
 
 const specialAttribute = ['@charset', '@font-face', '@import', '@keyframes'];
 
@@ -83,7 +83,13 @@ const propertyMap: Map<
     (val) =>
       ({ none: 'appearance-none' }[val] ?? `[appearance:${getCustomVal(val)}]`),
   ],
-  ['aspect-ratio', (val) => `[aspect-ratio:${getCustomVal(val)}]`],
+  ['aspect-ratio', (val) => {
+    return {
+      auto: 'aspect-auto',
+      '1/1': 'aspect-square',
+      '16/9': 'aspect-video',
+    }[removeSpace(val)] ?? `[aspect-ratio:${getCustomVal(val)}]`;
+  }],
   [
     'backdrop-filter',
     (val) => {

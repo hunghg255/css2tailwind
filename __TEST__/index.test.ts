@@ -99,3 +99,23 @@ test('CSS to tailwindcss with variable', () => {
     ],
   });
 });
+
+test('CSS Aspect Ratio', () => {
+  const cssCode1 = `body {
+    aspect-ratio: auto;
+    aspect-ratio: 1 / 1;
+    aspect-ratio: 16 / 9;
+    aspect-ratio: 3 / 4;
+  }`;
+
+  expect(CssToTailwind(cssCode1)).toEqual({
+    code: 'OK',
+    data: [
+      {
+        resultVal: 'aspect-auto aspect-square aspect-video [aspect-ratio:3_/_4]',
+        selectorName: 'body',
+      },
+    ],
+  });
+});
+
