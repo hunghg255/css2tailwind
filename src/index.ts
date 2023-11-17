@@ -2460,6 +2460,14 @@ const propertyMap: Map<
         auto: 'z-auto',
       }[val] ?? `z-[${val}]`),
   ],
+  [
+    'inset',
+    (val) =>
+      ({
+        '0': 'inset-0',
+        '0px': 'inset-0',
+      }[val] ?? `inset-[${getCustomVal(val)}]`),
+  ],
 ]);
 
 const parsingCode = (code: string): CssCodeParse[] => {
@@ -3099,7 +3107,7 @@ const moreDefaultValuesMap: Record<string, Record<string, string>> = {
     'opacity 150ms cubic-bezier(0.4, 0, 0.2, 1)': 'transition-opacity',
     'box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1)': 'transition-shadow',
     'transform 150ms cubic-bezier(0.4, 0, 0.2, 1)': 'transition-transform',
-  },
+  }
 };
 
 const getResultCode = (

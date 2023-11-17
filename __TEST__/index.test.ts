@@ -269,3 +269,20 @@ test('CSS z-index', () => {
   });
 });
 
+test('CSS inset', () => {
+  const cssCode1 = `body {
+    inset: 0;
+    inset: 35px;
+    inset: 35px 0 0 10px;
+  }`;
+
+  expect(CssToTailwind(cssCode1)).toEqual({
+    code: 'OK',
+    data: [
+      {
+        resultVal: 'inset-0 inset-[35px] inset-[35px_0_0_10px]',
+        selectorName: 'body',
+      },
+    ],
+  });
+});
