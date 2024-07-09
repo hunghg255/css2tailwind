@@ -1405,12 +1405,13 @@ const propertyMap: Map<
       isUnit(val)
         ? {
             '0px': 'max-h-0',
+            '0': 'max-h-0',
             '100%': 'max-h-full',
             '100vh': 'max-h-screen',
             'min-content': 'max-h-min',
             'max-content': 'max-h-max',
             'fit-content': 'max-h-fit',
-          }[val] ?? `[${val}]`
+          }[val] ?? `max-h-[${val}]`
         : '',
   ],
   [
@@ -1418,12 +1419,14 @@ const propertyMap: Map<
     (val) =>
       isUnit(val)
         ? {
+            '0px': 'max-w-0',
+            '0': 'max-w-0',
             none: 'max-w-none',
             '100%': 'max-w-full',
             'min-content': 'max-w-min',
             'max-content': 'max-w-max',
             'fit-content': 'max-w-fit',
-          }[val] ?? `[${val}]`
+          }[val] ?? `max-w-[${val}]`
         : '',
   ],
   [
@@ -1431,13 +1434,14 @@ const propertyMap: Map<
     (val) => {
       return isUnit(val)
         ? {
+            '0': 'min-h-0',
             '0px': 'min-h-0',
             '100%': 'min-h-full',
             '100vh': 'min-h-screen',
             'min-content': 'min-h-min',
             'max-content': 'min-h-max',
             'fit-content': 'min-h-fit',
-          }[val] ?? `[${val}]`
+          }[val] ?? `min-h-[${val}]`
         : '';
     },
   ],
@@ -1447,11 +1451,12 @@ const propertyMap: Map<
       isUnit(val)
         ? {
             '0px': 'min-w-0',
+            '0': 'min-w-0',
             '100%': 'min-w-full',
             'min-content': 'min-w-min',
             'max-content': 'min-w-max',
             'fit-content': 'min-w-fit',
-          }[val] ?? `[${val}]`
+          }[val] ?? `min-w-[${val}]`
         : '',
   ],
   [
@@ -2995,6 +3000,8 @@ const moreDefaultValuesMap: Record<string, Record<string, string>> = {
   },
   'max-height': {
     '1px': 'max-h-px',
+    '0': 'max-h-0',
+    '0px': 'max-h-0',
     '0.125rem': 'max-h-0.5',
     '0.25rem': 'max-h-1',
     '0.375rem': 'max-h-1.5',
