@@ -286,3 +286,19 @@ test('CSS inset', () => {
     ],
   });
 });
+
+test('CSS text-align', () => {
+  const cssCode1 = `body {
+    text-align: start;
+  }`;
+
+  expect(CssToTailwind(cssCode1)).toEqual({
+    code: 'OK',
+    data: [
+      {
+        resultVal: 'text-start',
+        selectorName: 'body',
+      },
+    ],
+  });
+});
