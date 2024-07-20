@@ -1,5 +1,6 @@
 {
   "name": "css2tailwind",
+  "packageManager": "pnpm@9.5.0",
   "version": "1.0.11",
   "license": "MIT",
   "main": "./dist/index.js",
