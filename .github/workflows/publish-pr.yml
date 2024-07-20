@@ -5,8 +5,8 @@ on:
     types: [labeled, unlabeled]
 
 jobs:
-  release:
-    if: ${{ !github.event.pull_request.draft && contains(github.event.pull_request.labels.*.name, 'cr-tracked') && !contains(github.event.pull_request.labels.*.name, 'spam') && !contains(github.event.pull_request.labels.*.name, 'invalid') }}
+  publish-pr:
+    if: ${{ !github.event.pull_request.draft && contains(github.event.pull_request.labels.*.name, 'publish-pr') && !contains(github.event.pull_request.labels.*.name, 'spam') && !contains(github.event.pull_request.labels.*.name, 'invalid') }}
     runs-on: ubuntu-latest
 
     steps:
