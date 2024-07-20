@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-  A library convert css to tailwindcss
+  A library convert css to tailwindcss 1
 </p>
 
 <p align="center">
