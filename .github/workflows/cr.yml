@@ -1,17 +1,8 @@
 name: CR
 
 on:
-  pull_request:
-    branches: [master]
-    types: [opened, synchronize, labeled, ready_for_review]
-    paths-ignore:
-      - '.github/**'
-      - '__tests__/**'
-      - 'art/**'
-      - 'docs/**'
-      - '*.md'
-
-permissions: {}
+  pull_request_target:
+    types: [labeled, unlabeled]
 
 jobs:
   release:
