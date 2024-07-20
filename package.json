@@ -12,7 +12,8 @@
     "build": "tsup --dts",
     "test-cli": "node ./test-cli/test.mjs",
     "test": "vitest",
-    "release": "bumpp -r"
+    "release": "bumpp -r",
+    "prepublishOnly": "npm run build"
   },
   "author": "hunghg255",
   "devDependencies": {
@@ -40,8 +41,5 @@
   },
   "bugs": {
     "url": "https://github.com/hunghg255/css2tailwind/issues"
-  },
-  "dependencies": {
-    "css2tailwind": "^1.0.0"
   }
 }
