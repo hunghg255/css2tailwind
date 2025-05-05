@@ -302,3 +302,21 @@ test('CSS text-align', () => {
     ],
   });
 });
+
+test('CSS padding', () => {
+  /* top | right | bottom | left */
+  const cssCode1 = `body {
+    margin: 10px 20px 30px 20px;
+    padding: 10px 20px 30px 20px;
+  }`;
+
+  expect(CssToTailwind(cssCode1)).toEqual({
+    code: 'OK',
+    data: [
+      {
+        resultVal: 'mt-[10px] mx-[20px] mb-[30px] pt_[10px] px_[20px] pb_[30px]',
+        selectorName: 'body',
+      },
+    ],
+  });
+});

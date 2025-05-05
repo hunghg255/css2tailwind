@@ -1296,6 +1296,7 @@ const propertyMap: Map<
         } else {
           vals = vals.map((v) => `[${v}]`);
         }
+
         if (vals.length === 1 || new Set(vals).size === 1) {
           return `m_${vals[0]}`;
         } else if (vals.length === 2) {
@@ -1306,23 +1307,26 @@ const propertyMap: Map<
           }
           return `mt_${vals[0]} mx_${vals[1]} mb_${vals[2]}`;
         } else if (vals.length === 4) {
-          if (vals[0] === vals[2]) {
-            if (vals[1] === vals[3]) {
-              return `mx_${vals[1]} my_${vals[0]}`;
-            }
-            return `ml_${vals[3]} mr_${vals[1]} my_${vals[0]}`;
+          const [top, right, bottom, left] = vals;
+
+          if (top === bottom && right === left) {
+            return `mx_${left} my_${top}`;
           }
-          if (vals[1] === vals[3]) {
-            if (vals[0] === vals[2]) {
-              return `mx_${vals[1]} my_${vals[0]}`;
-            }
-            return `ml_${vals[3]} mr_${vals[1]} my_${vals[0]}`;
+
+          if (top === bottom && right !== left) {
+            return `mr_${right} my_${top} ml_${left}`;
           }
-          return `mt_${vals[0]} mr_${vals[1]} mb_${vals[2]} ml_${vals[3]}`;
+
+          if (top !== bottom && right === left) {
+            return `mt_${top} mx_${right} mb_${bottom}`;
+          }
+
+          return `mt_${top} mr_${right} mb_${bottom} ml_${left}`;
         }
         return '';
       };
       const v = getPipeVal(val);
+
       return v === ''
         ? ''
         : v
@@ -1657,19 +1661,21 @@ const propertyMap: Map<
         }
         return `pt-${vals[0]} px-${vals[1]} pb-${vals[2]}`;
       } else if (vals.length === 4) {
-        if (vals[0] === vals[2]) {
-          if (vals[1] === vals[3]) {
-            return `px-${vals[1]} py-${vals[0]}`;
-          }
-          return `pl-${vals[3]} pr-${vals[1]} py-${vals[0]}`;
+        const [top, right, bottom, left] = vals;
+
+        if (top === bottom && right === left) {
+          return `px_${left} py_${top}`;
         }
-        if (vals[1] === vals[3]) {
-          if (vals[0] === vals[2]) {
-            return `px-${vals[1]} py-${vals[0]}`;
-          }
-          return `pl-${vals[3]} pr-${vals[1]} py-${vals[0]}`;
+
+        if (top === bottom && right !== left) {
+          return `pr_${right} py_${top} pl_${left}`;
         }
-        return `pt-${vals[0]} pr-${vals[1]} pb-${vals[2]} pl-${vals[3]}`;
+
+        if (top !== bottom && right === left) {
+          return `pt_${top} px_${right} pb_${bottom}`;
+        }
+
+        return `pt_${top} pr_${right} pb_${bottom} pl_${left}`;
       }
       return '';
     },
