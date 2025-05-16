@@ -1298,30 +1298,30 @@ const propertyMap: Map<
         }
 
         if (vals.length === 1 || new Set(vals).size === 1) {
-          return `m_${vals[0]}`;
+          return `m-${vals[0]}`;
         } else if (vals.length === 2) {
-          return `mx_${vals[1]} my_${vals[0]}`;
+          return `mx-${vals[1]} my-${vals[0]}`;
         } else if (vals.length === 3) {
           if (vals[0] === vals[2]) {
-            return `mx_${vals[1]} my_${vals[0]}`;
+            return `mx-${vals[1]} my-${vals[0]}`;
           }
-          return `mt_${vals[0]} mx_${vals[1]} mb_${vals[2]}`;
+          return `mt-${vals[0]} mx-${vals[1]} mb-${vals[2]}`;
         } else if (vals.length === 4) {
           const [top, right, bottom, left] = vals;
 
           if (top === bottom && right === left) {
-            return `mx_${left} my_${top}`;
+            return `mx-${left} my-${top}`;
           }
 
           if (top === bottom && right !== left) {
-            return `mr_${right} my_${top} ml_${left}`;
+            return `mr-${right} my-${top} ml-${left}`;
           }
 
           if (top !== bottom && right === left) {
-            return `mt_${top} mx_${right} mb_${bottom}`;
+            return `mt-${top} mx-${right} mb-${bottom}`;
           }
 
-          return `mt_${top} mr_${right} mb_${bottom} ml_${left}`;
+          return `mt-${top} mr-${right} mb-${bottom} ml-${left}`;
         }
         return '';
       };
@@ -1664,18 +1664,18 @@ const propertyMap: Map<
         const [top, right, bottom, left] = vals;
 
         if (top === bottom && right === left) {
-          return `px_${left} py_${top}`;
+          return `px-${left} py-${top}`;
         }
 
         if (top === bottom && right !== left) {
-          return `pr_${right} py_${top} pl_${left}`;
+          return `pr-${right} py-${top} pl-${left}`;
         }
 
         if (top !== bottom && right === left) {
-          return `pt_${top} px_${right} pb_${bottom}`;
+          return `pt-${top} px-${right} pb-${bottom}`;
         }
 
-        return `pt_${top} pr_${right} pb_${bottom} pl_${left}`;
+        return `pt-${top} pr-${right} pb-${bottom} pl-${left}`;
       }
       return '';
     },

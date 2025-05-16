@@ -314,7 +314,7 @@ test('CSS padding', () => {
     code: 'OK',
     data: [
       {
-        resultVal: 'mt-[10px] mx-[20px] mb-[30px] pt_[10px] px_[20px] pb_[30px]',
+        resultVal: 'mt-[10px] mx-[20px] mb-[30px] pt-[10px] px-[20px] pb-[30px]',
         selectorName: 'body',
       },
     ],
