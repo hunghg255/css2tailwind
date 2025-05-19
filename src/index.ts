@@ -1282,6 +1282,11 @@ const propertyMap: Map<
   [
     'margin',
     (val) => {
+      const r = { '0': 'm-0', '0px': 'm-0' }[val];
+      if (r) {
+        return r;
+      }
+
       const getPipeVal = (val: string) => {
         const r = { '0': 'm_0', '0px': 'm_0', auto: 'm_auto' }[val];
         if (r) {
@@ -1326,17 +1331,13 @@ const propertyMap: Map<
         return '';
       };
       const v = getPipeVal(val);
+console.log({
+  v
+});
 
       return v === ''
         ? ''
-        : v
-            .split(' ')
-            .map((t) =>
-              t.includes('-')
-                ? `-${t.replace('-', '').replace('_', '-')}`
-                : t.replace('_', '-')
-            )
-            .join(' ');
+        : v;
     },
   ],
   [

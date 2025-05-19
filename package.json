@@ -12,7 +12,7 @@
   "scripts": {
     "build": "tsup --dts",
     "test-cli": "node ./test-cli/test.mjs",
-    "test": "vitest",
+    "test": "vitest --watch",
     "release": "bumpp -r",
     "prepublishOnly": "npm run build"
   },

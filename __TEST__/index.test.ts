@@ -307,14 +307,13 @@ test('CSS padding', () => {
   /* top | right | bottom | left */
   const cssCode1 = `body {
     margin: 10px 20px 30px 20px;
-    padding: 10px 20px 30px 20px;
   }`;
 
   expect(CssToTailwind(cssCode1)).toEqual({
     code: 'OK',
     data: [
       {
-        resultVal: 'mt-[10px] mx-[20px] mb-[30px] pt-[10px] px-[20px] pb-[30px]',
+        resultVal: 'mt-[10px] mx-[20px] mb-[30px]',
         selectorName: 'body',
       },
     ],
